@@ -25,13 +25,8 @@ function calculateNetSalary(basicSalary, benefits) {
         { min: 90000, max: 99999, rate: 1700 },
         { min: 100000, max: Infinity, rate: 1800 }
     ];
-
-    const NSSF_RATE_EMPLOYEE = 6; 
-
-
-    const grossSalary = basicSalary + benefits;
-
-  
+    const NSSF_RATE_EMPLOYEE = 6;
+    const grossSalary = basicSalary + benefits;  
     let nhifDeduction = 0;
     for (let i = 0; i < NHIF_RATES.length; i++) {
         if (grossSalary >= NHIF_RATES[i].min && grossSalary <= NHIF_RATES[i].max) {
@@ -39,10 +34,7 @@ function calculateNetSalary(basicSalary, benefits) {
             break;
         }
     }
-
     const nssfDeduction = (basicSalary * NSSF_RATE_EMPLOYEE) / 100;
-
-   
     const taxableIncome = grossSalary - nhifDeduction - nssfDeduction;
     let payee = 0;
     for (let i = 0; i < TAX_BANDS.length; i++) {
@@ -51,9 +43,7 @@ function calculateNetSalary(basicSalary, benefits) {
             break;
         }
     }
-
    const netSalary = grossSalary - nhifDeduction - nssfDeduction - payee;
-
     return {
         grossSalary: grossSalary,
         nhifDeduction: nhifDeduction,
@@ -62,11 +52,11 @@ function calculateNetSalary(basicSalary, benefits) {
         netSalary: netSalary
     };
 }
-
-
 const basicSalary = 50000;
 const benefits = 10000;
 const salaryDetails = calculateNetSalary(basicSalary, benefits);
+
+
 
 console.log("Gross Salary:", salaryDetails.grossSalary);
 console.log("NHIF Deduction:", salaryDetails.nhifDeduction);

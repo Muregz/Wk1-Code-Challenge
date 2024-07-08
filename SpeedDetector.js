@@ -4,10 +4,8 @@ function calculateDemeritPoints(speed) {
     if (speed <= speedLimit) {
         console.log("Ok");
     } else {
-        const kmAboveLimit = speed - speedLimit;     
-
+        const kmAboveLimit = speed - speedLimit;  
         const demeritPoints = Math.floor(kmAboveLimit / kmPerDemeritPoint);       
-    
         console.log(`Demerit points: ${demeritPoints}`);
         }
 }
