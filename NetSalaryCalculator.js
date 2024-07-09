@@ -58,6 +58,7 @@ const salaryDetails = calculateNetSalary(basicSalary, benefits);
 
 
 
+
 console.log("Gross Salary:", salaryDetails.grossSalary);
 console.log("NHIF Deduction:", salaryDetails.nhifDeduction);
 console.log("NSSF Deduction:", salaryDetails.nssfDeduction);
